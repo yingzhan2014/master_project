@@ -29,7 +29,7 @@ int IrPartition::getTotalNumBlocks() {
 void IrPartition::partitionIr() {
     
     for (int ir_block_idx = 0; ir_block_idx < total_ir_blocks; ir_block_idx++) {
-        //std::cout << "block_idx: " << ir_block_idx << std::endl;
+    
         ir_blocks[ir_block_idx] = new std::vector<std::complex<float>>(buffer_size);
         ir_blocks_fft[ir_block_idx] = new std::vector<std::complex<float>>(buffer_size);
         
@@ -42,17 +42,12 @@ void IrPartition::partitionIr() {
                 
             }
             else {
+                
                 ir_blocks[ir_block_idx]->operator[](sample) = 0;
                 ir_blocks[ir_block_idx]->operator[](sample + block_size) = 0;
             }
             
         }
-        
-//        for (int j = 0; j < buffer_size; j++) {
-//            std::cout << ir_blocks[ir_block_idx]->operator[](j) << std::endl;
-//        }
-//        
-        //FFT.transform(ir_blocks[ir_block_idx]->data(), ir_blocks_fft[ir_block_idx]->data());
         
     }
     

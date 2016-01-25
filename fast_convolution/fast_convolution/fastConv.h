@@ -29,14 +29,14 @@ private:
     float* channel_out;
     int num_ir_blocks;
     std::vector<float> h;
-    CircularConvolution cconv;
-    IrPartition partitioned_ir;
-    OverlapSave ols;
-    InputRead x;
+    CircularConvolution& cconv;
+    IrPartition& partitioned_ir;
+    OverlapSave& ols;
+    InputRead& x;
 
 public:
     
-    fastConv(int buffer_size, std::vector<float>& h):buffer_size(buffer_size), block_size(buffer_size / 2), cconv(buffer_size),h(h),partitioned_ir(h, block_size), ols(partitioned_ir.getTotalNumBlocks(), block_size), x(buffer_size){
+    fastConv(int buffer_size, CircularConvolution& cconv, IrPartition& partitioned_ir, OverlapSave& ols, InputRead& x):buffer_size(buffer_size), block_size(buffer_size / 2), cconv(cconv),partitioned_ir(partitioned_ir), ols(ols), x(x){
         
         
         
@@ -47,7 +47,6 @@ public:
         for (int ir_block_idx = 0; ir_block_idx < partitioned_ir.getTotalNumBlocks(); ir_block_idx++) {
             
             cconv.calFFT(partitioned_ir.getIrBlock(ir_block_idx), partitioned_ir.getIrBlockFFT(ir_block_idx));
-            //partitioned_ir.outputIrBlockFFT(ir_block_idx);
             
         }
         
@@ -57,7 +56,6 @@ public:
     float* process(float* channel_in, int input_size) {
         
         padded_input_len = ceil( (float(input_size) / block_size) ) * block_size + block_size;
-        //std::cout << "padded_len: " << padded_input_len << std::endl;
         
         for (int i = 0; i < padded_input_len; i++) {
             x.readInput(channel_in, input_size, i);
@@ -71,7 +69,6 @@ public:
                     cconv.calCircularConv(cconv.getDotProduct());
                     float* real_conv;
                     real_conv = cconv.getConvResult();
-                    //cconv.outputRealConv();
                     // here need to save and add conv result at the same time
                     ols.saveAndAddResult(real_conv);
                     ols.updateOlsPtr(partitioned_ir.getTotalNumBlocks());
@@ -82,7 +79,6 @@ public:
                 if (ols.outputIsNotFull(x.getBlockIdx(),input_size)) {
                     ols.writeResult(channel_out, x.getBlockIdx(), input_size);
                     ols.updateOutputRptr(partitioned_ir.getTotalNumBlocks());
-                    //x.clearBlockIdx();
                     
                 }
                 else{

@@ -8,9 +8,15 @@
 #include "fastConv.h"
 
 int buffer_size = 8;
+int block_size = buffer_size / 2;
 std::vector<float> h {1,1,2,1,4,3,1,0,2,3};
+CircularConvolution cconv(buffer_size);
+IrPartition partitioned_ir(h, block_size);
+OverlapSave ols(partitioned_ir.getTotalNumBlocks(), block_size);
+InputRead x(buffer_size);
 
-fastConv fast_conv(buffer_size, h);
+
+fastConv fast_conv(buffer_size,cconv,partitioned_ir,ols,x );
 
 
 void processBlock() {
