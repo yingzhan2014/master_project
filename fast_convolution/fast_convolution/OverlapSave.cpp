@@ -11,6 +11,7 @@
 OverlapSave::OverlapSave(int total_ir_blocks, int block_size):block_size(block_size){
     
     overlap_save_result = new circularBuffer<float>*[total_ir_blocks];
+    //output = new circularBuffer<float>(block_size);
     buffer_size = 2 * block_size;
     for (int i = 0; i <total_ir_blocks; i++) {
         overlap_save_result[i] = new circularBuffer<float>(block_size);
@@ -18,7 +19,6 @@ OverlapSave::OverlapSave(int total_ir_blocks, int block_size):block_size(block_s
     }
     
 }
-
 
 
 void OverlapSave::outputOLS(int total_irs) {
@@ -55,40 +55,71 @@ void OverlapSave::updateOlsPtr(int total_irs) {
     
 }
 
-bool OverlapSave::outputIsNotFull(int block_idx, int input_size) {
-    if ( (block_idx ) * block_size < input_size) {
-        return true;
-    }
-    return false;
-}
 
-void OverlapSave::writeResult(float* channel_out, int num_input_buffers, int input_size) {
+
+//bool OverlapSave::outputIsNotFull(int input_size) {
+//    //std::cout << "output inside bool: " << output_wptr << std::endl;
+//    if ( output_wptr < input_size) {
+//        return true;
+//    }
+//    return false;
+//}
+
+void OverlapSave::writeResult(circularBuffer<float>* output, int output_rptr) {
     for (int i = 0; i < block_size; i++) {
-        //if (i + num_input_buffers * block_size < input_size) {
-            channel_out[i + num_input_buffers * block_size] = overlap_save_result[output_rptr]->readFunction(0);
-            updateOlsResult(output_rptr);
-            overlap_save_result[output_rptr]->moveReadPtr();
-            
-        //}
-//        else {
-//            break;
-//        }
+        
+        //std::cout << "THIS IS OUTPUTWPTR: " << output_wptr << std::endl;
+        output->writeFunction(overlap_save_result[output_rptr]->readFunction(0));
+        //output->printWptr();
+        output->moveWritePtr();
+        updateOlsResult(output_rptr);
+        overlap_save_result[output_rptr]->moveReadPtr();
+        
     }
     
-}
-
-void OverlapSave::updateOutputRptr(int total_irs) {
-    //std::cout << "before_output_rtpr: " << output_rptr<<std::endl;
-    output_rptr = output_rptr + 1;
-    output_rptr = output_rptr % total_irs;
-    std::cout << "OUTPUT_PTR: " << output_rptr << std::endl;
+    //output->print();
     
 }
 
+//circularBuffer<float>* OverlapSave::getOutputBuffer() {
+//    return output;
+//}
 
-void OverlapSave::setOlsPtr(int ptr) {
-    ols_ptr = ptr;
-}
-int OverlapSave::getOutputRptr() {
-    return output_rptr;
-}
+//void OverlapSave::printOutputResult() {
+//    std::cout << "OUTPUT RESULT" << std::endl;
+//    output->print();
+//    std::cout << "////////////" << std::endl;
+//    
+//}
+//
+//float OverlapSave::writeResultToChannel() {
+//    float sample;
+//    //output->printRptr();
+//    sample = output->readFunction(0);
+//    output->moveReadPtr();
+//    
+//    
+//    //std::cout << "THIS IS FINAL OUTPUT: "<< sample << std::endl;
+//    return sample;
+//  
+//}
+
+//void OverlapSave::updateOutputWptr() {
+//    output_wptr = output_wptr + 1;
+//}
+
+//void OverlapSave::updateOutputRptr(int total_irs) {
+//    //std::cout << "before_output_rtpr: " << output_rptr<<std::endl;
+//    output_rptr = output_rptr + 1;
+//    output_rptr = output_rptr % total_irs;
+//    std::cout << "OUTPUT_PTR: " << output_rptr << std::endl;
+//    
+//}
+
+
+//void OverlapSave::setOlsPtr(int ptr) {
+//    ols_ptr = ptr;
+//}
+//int OverlapSave::getOutputRptr() {
+//    return output_rptr;
+//}

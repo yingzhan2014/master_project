@@ -55,6 +55,14 @@ public:
         writePtr = 0;
     }
     
+    void printRptr() {
+        std::cout << "readPtr is : " << readPtr << std::endl;
+    }
+    
+    void printWptr() {
+        std::cout << "writePtr is : " << writePtr << std::endl;
+    }
+    
     void setReadPtr() {
         readPtr = 0;
     }

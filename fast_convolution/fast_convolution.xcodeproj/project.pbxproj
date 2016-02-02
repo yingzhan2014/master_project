@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10604E7A1C60066000458877 /* OutputRead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10604E781C60066000458877 /* OutputRead.cpp */; };
 		10B9E2501C0C30C400765E6F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10B9E24F1C0C30C400765E6F /* main.cpp */; };
 		10B9E2521C0C30C400765E6F /* fast_convolution.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10B9E2511C0C30C400765E6F /* fast_convolution.1 */; };
 		10E13D3E1C52C2240095E784 /* OverlapSave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10E13D3C1C52C2230095E784 /* OverlapSave.cpp */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10604E781C60066000458877 /* OutputRead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputRead.cpp; sourceTree = "<group>"; };
+		10604E791C60066000458877 /* OutputRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputRead.h; sourceTree = "<group>"; };
 		10B9E24C1C0C30C400765E6F /* fast_convolution */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fast_convolution; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B9E24F1C0C30C400765E6F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		10B9E2511C0C30C400765E6F /* fast_convolution.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = fast_convolution.1; sourceTree = "<group>"; };
@@ -77,14 +80,16 @@
 			isa = PBXGroup;
 			children = (
 				10B9E24F1C0C30C400765E6F /* main.cpp */,
+				10604E781C60066000458877 /* OutputRead.cpp */,
+				10604E791C60066000458877 /* OutputRead.h */,
 				10E13D491C530B4A0095E784 /* fastConv.h */,
+				10E13D481C530B4A0095E784 /* fastConv.cpp */,
 				10E13D3C1C52C2230095E784 /* OverlapSave.cpp */,
 				10E13D3D1C52C2240095E784 /* OverlapSave.h */,
 				10E13D511C5325C20095E784 /* CircularConv.cpp */,
 				10E13D521C5325C20095E784 /* CircularConv.h */,
 				10E13D3F1C52C3830095E784 /* IrPartition.cpp */,
 				10E13D401C52C3830095E784 /* IrPartition.h */,
-				10E13D481C530B4A0095E784 /* fastConv.cpp */,
 				10E13D421C52C3A90095E784 /* InputRead.cpp */,
 				10E13D431C52C3A90095E784 /* InputRead.h */,
 				10B9E2581C0C30DB00765E6F /* circularBuffer.h */,
@@ -149,6 +154,7 @@
 				10E13D441C52C3A90095E784 /* InputRead.cpp in Sources */,
 				10B9E2501C0C30C400765E6F /* main.cpp in Sources */,
 				10E13D531C5325C20095E784 /* CircularConv.cpp in Sources */,
+				10604E7A1C60066000458877 /* OutputRead.cpp in Sources */,
 				10E13D4A1C530B4A0095E784 /* fastConv.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

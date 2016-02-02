@@ -59,12 +59,6 @@ float* CircularConvolution::getConvResult() {
 
 
 
-
-
-
-
-
-
 void CircularConvolution::outputRealConv() {
     for (int i = 0; i < block_size; i++) {
         std::cout << "real_conv: " << real_conv[i] << std::endl;

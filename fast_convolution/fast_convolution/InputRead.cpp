@@ -40,6 +40,7 @@ void InputRead::readInput(float* input,int input_size, int sample_idx) {
     // std::cout << "input:  " << input[sample_idx] << std::endl;
     input_buffer->moveReadPtr();
     input_buffer->writeFunction(sample);
+    //input_buffer->printWptr();
     if (sample_idx < input_size) {
         input_buffer->writeFunction(input[sample_idx], block_size);
         input_buffer->moveWritePtr();
@@ -66,7 +67,9 @@ int InputRead::getBlockIdx() {
 }
 
 bool InputRead::isInputBufferFull(circularBuffer<float>* input_buffer) {
-    if (input_buffer->getWritePtr() % block_size == 0) {
+    
+    
+    if (input_buffer->getWritePtr() % block_size == 0 && input_buffer->getWritePtr() != 0) {
         input_buffer->setReadPtr();
         input_buffer->setWritePtr();
         
@@ -76,6 +79,7 @@ bool InputRead::isInputBufferFull(circularBuffer<float>* input_buffer) {
 }
 
 void InputRead::writeCpxInput(circularBuffer<float>* input_buffer) {
+    
     
     for (int i = 0; i<buffer_size; i++) {
         cpx_input->operator[](i) = input_buffer->readFunction(i);
