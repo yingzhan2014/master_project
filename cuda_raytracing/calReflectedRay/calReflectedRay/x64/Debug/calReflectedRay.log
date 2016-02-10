@@ -1,0 +1,50 @@
+﻿Build started 2/10/2016 6:35:20 PM.
+     1>Project "C:\Users\YingZhan\calReflectedRay\calReflectedRay\calReflectedRay.vcxproj" on node 2 (Build target(s)).
+     1>AddCudaCompileDeps:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /DWIN32 /DWIN64 /D_DEBUG /D_CONSOLE /D_MBCS /I./ /I../../common/inc /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" /I. /FIcuda_runtime.h /c C:\Users\YingZhan\calReflectedRay\calReflectedRay\kernel.cu 
+       CudaBuild:
+         Compiling CUDA source file kernel.cu...
+         cmd.exe /C "C:\Users\YingZhan\AppData\Local\Temp\tmp8fd9b6568a4c411c8da10677e2e02707.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64"  -I./ -I../../common/inc -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd " -o x64\Debug\kernel.cu.obj "C:\Users\YingZhan\calReflectedRay\calReflectedRay\kernel.cu"
+         
+         C:\Users\YingZhan\calReflectedRay\calReflectedRay>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64"  -I./ -I../../common/inc -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd " -o x64\Debug\kernel.cu.obj "C:\Users\YingZhan\calReflectedRay\calReflectedRay\kernel.cu" 
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(491): warning : returning pointer to local variable
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(747): warning : variable "err_ray" was declared but never referenced
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(791): warning : variable "size_one_ray" was declared but never referenced
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(491): warning : returning pointer to local variable
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(747): warning : variable "err_ray" was declared but never referenced
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(791): warning : variable "size_one_ray" was declared but never referenced
+         kernel.cu
+     1>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(241): warning C4267: 'argument' : conversion from 'size_t' to 'thrust::system::cuda::detail::bulk_::parallel_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>::size_type', possible loss of data
+     1>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(303): warning C4267: 'argument' : conversion from 'size_t' to 'thrust::system::cuda::detail::bulk_::parallel_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>::size_type', possible loss of data
+     1>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(319): warning C4267: 'argument' : conversion from 'size_t' to 'thrust::system::cuda::detail::bulk_::parallel_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>::size_type', possible loss of data
+     1>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(439): warning C4267: 'argument' : conversion from 'size_t' to 'thrust::system::cuda::detail::bulk_::concurrent_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>::size_type', possible loss of data
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(42): warning C4244: '=' : conversion from 'const long double' to 'float', possible loss of data
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(51): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(52): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(102): warning C4305: '=' : truncation from 'double' to 'float'
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(756): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(757): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>C:/Users/YingZhan/calReflectedRay/calReflectedRay/kernel.cu(758): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(250): warning C4267: 'argument' : conversion from 'size_t' to 'thrust::system::cuda::detail::bulk_::parallel_group<thrust::system::cuda::detail::bulk_::concurrent_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>,0x00>::size_type', possible loss of data
+                 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\include\thrust/system/cuda/detail/bulk/execution_policy.hpp(625) : see reference to function template instantiation 'thrust::system::cuda::detail::bulk_::parallel_group<thrust::system::cuda::detail::bulk_::concurrent_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>,0x00> thrust::system::cuda::detail::bulk_::par<thrust::system::cuda::detail::bulk_::concurrent_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>>(ExecutionAgent,size_t)' being compiled
+                 with
+                 [
+                     ExecutionAgent=thrust::system::cuda::detail::bulk_::concurrent_group<thrust::system::cuda::detail::bulk_::agent<0x01>,0x00>
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\YingZhan\calReflectedRay\x64\Debug\calReflectedRay.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\lib\x64" cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\YingZhan\calReflectedRay\x64\Debug\calReflectedRay.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\YingZhan\calReflectedRay\x64\Debug\calReflectedRay.lib" /MACHINE:X64 x64\Debug\kernel.cu.obj
+         calReflectedRay.vcxproj -> C:\Users\YingZhan\calReflectedRay\x64\Debug\calReflectedRay.exe
+       PostBuildEvent:
+         echo copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart*.dll" "C:\Users\YingZhan\calReflectedRay\x64\Debug\"
+         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart*.dll" "C:\Users\YingZhan\calReflectedRay\x64\Debug\"
+         :VCEnd
+         copy "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart*.dll" "C:\Users\YingZhan\calReflectedRay\x64\Debug\"
+         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart32_75.dll
+         C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin\cudart64_75.dll
+                 2 file(s) copied.
+     1>Done Building Project "C:\Users\YingZhan\calReflectedRay\calReflectedRay\calReflectedRay.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:14.80
